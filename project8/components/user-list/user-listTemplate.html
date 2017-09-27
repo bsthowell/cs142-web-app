@@ -1,0 +1,11 @@
+<div>
+	<ul>
+		<li ng-repeat="user in list.users"> 
+			<a ng-href="{{main.getUserHref(user)}}">
+				<md-button>
+					{{user.first_name + " " + user.last_name}}
+				</md-button>
+			</a>
+		</li>
+	</ul>
+</div>

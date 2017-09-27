@@ -1,0 +1,21 @@
+.container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.photoDiv {
+	width: 300px;
+	display: inline-block;
+	margin: 20px;
+}
+
+img {
+	height: auto;
+	width: 100%;
+}
+
+.commentHeader {
+	display: flex;
+	flex-direction: row; 
+	flex-wrap: wrap;
+}

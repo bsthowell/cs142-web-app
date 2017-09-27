@@ -1,0 +1,23 @@
+<div class="detail-container">
+	<p class="md-display-4">
+		<!-- {{detail.full_name}} -->
+		{{detail.user.first_name}}
+		<br>
+		{{detail.user.last_name}}
+	</p>
+	<p class="md-caption">
+		{{detail.user.occupation + " - " + detail.user.location}}
+	</p>
+	<p class="md-caption highlight">
+		{{detail.user.description}}
+	</p>
+
+	<md-button ng-href="{{detail.getPhotosHref()}}">
+		See Photos
+	</md-button>
+
+    <md-button ng-show="detail.isLoggedIn()" class="md-primary md-raised" ng-click="detail.showConfirm($event)" >
+      Delete Account
+    </md-button>
+
+</div>

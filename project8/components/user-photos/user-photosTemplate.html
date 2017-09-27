@@ -1,0 +1,35 @@
+<div class="container">
+	<div ng-repeat="photo in photos.photoArray" class="photoDiv">
+		<img ng-src="{{photos.getPhotoSrc(photo)}}"></img>
+		<p class="md-caption">
+			Uploaded: {{photo.date_time}}
+			<a href="" ng-show="photos.isUsersPhoto(photo)" ng-click="photos.deletePhoto(photo)"><i class="material-icons">delete_forever</i></a>
+		</p>
+		<div class="comments-container">
+			<div ng-repeat= "comment in photo.comments" class="comment">
+				<div class="comment-header">
+					<p class="md-caption">
+						<a ng-href="{{main.getUserHref(comment.user)}}">{{comment.user.first_name + " " + comment.user.last_name}}</a> - {{comment.date_time}}
+						<a href="" ng-show="photos.isUsersComment(comment)" ng-click="photos.deleteComment(photo, comment)"><i class="material-icons">delete_forever</i></a>
+					</p>
+				</div>
+				<p class="md-caption">{{comment.comment}}<p>
+			</div>
+			<div class="submit_div">
+				<form name="postCommentForm" ng-submit="photos.postComment(photo)">
+					<md-input-container>
+						<label>Add comment</label>
+						<input name="commentField{{photo._id}}" ng-model="photos.comments[photo._id]">
+					</md-input-container>
+				</form>
+				<div>
+					<md-button ng-show="!photo.hasLiked" ng-click="photos.like(photo)">Like</md-button>
+					<md-button ng-show="photo.hasLiked" ng-click="photos.unlike(photo)">Unlike</md-button>
+				</div>
+				Likes: {{photo.num_likes}}
+				<br>
+				<i ng-show="photo.hasLiked" class="material-icons">thumb_up</i>
+			</div>
+		</div>
+	</div>
+</div>
